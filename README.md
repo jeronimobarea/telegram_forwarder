@@ -1,5 +1,6 @@
 # telegram_forwarder
  
+## .env file config
 ```
 API_ID=<telegram api id>
 API_HASH=<telegram api hash>
