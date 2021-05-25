@@ -1,7 +1,7 @@
-from .constants import Constants
+from src.utils.constants import Constants
 
 
-class Utils:
+class Message:
 
     @staticmethod
     def format_message(channel: str, message: str) -> str:

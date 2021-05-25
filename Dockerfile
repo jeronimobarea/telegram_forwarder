@@ -1,10 +1,17 @@
-FROM python:latest
+FROM python:3.9
 
-WORKDIR /app
+ENV USER_NAME=forwarder
+ARG PROJECT_DIR=/app
 
-COPY requirements.txt .
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev && useradd $USER_NAME
+
+WORKDIR $PROJECT_DIR
+
+COPY --chown=$USER_NAME:$USER_NAME requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+USER $USER_NAME
 
-CMD [ "python3","./main.py" ]
+COPY --chown=$USER_NAME:$USER_NAME . ./
+
+CMD [ "python","main.py" ]

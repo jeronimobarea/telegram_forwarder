@@ -1,8 +1,9 @@
-version: '3.9'
+version: '3'
 services:
-  bot:
+  web:
     build: .
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     env_file: .env
-    command: python main.py
     volumes:
       - ./:/app

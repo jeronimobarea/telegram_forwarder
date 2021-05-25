@@ -6,8 +6,8 @@ load_dotenv()
 
 API_ID: str = os.getenv("API_ID")
 API_HASH: str = os.getenv("API_HASH")
-CHAT_NAME: str = os.getenv("CHAT_NAME")
-CHAT_FORWARD_LIST: list = os.getenv("CHAT_FORWARD_LIST").split(",")
+CHAT_NAME: list[str] = os.getenv("CHAT_NAME").split(":")
+CHAT_FORWARD_LIST: list[str] = os.getenv("CHAT_FORWARD_LIST").split(",")
 
 
 class Constants(Enum):
